@@ -235,16 +235,21 @@ async function loadModel(i,j,type) {
 	else if (type==9){
 		modelData = await model_loader.loadAsync('./models/player.glb');
 		const obj_Player = modelData.scene.children[0];
-		obj_Player.position.set(0, 0.97, -1);
-		obj_Player.scale.set(0.145, 0.145, 0.145);
+		//obj_Player.position.set(0, 0.97, -1);
+		obj_Player.position.set(0, 1.115, -1);
+		obj_Player.scale.set(0.04, 0.04, 0.04);
+		//obj_Player.scale.set(0.145, 0.145, 0.145);
 		obj_Player.rotation.y = direction * Math.PI / 180;
 		scene.add(obj_Player);
 	} else if (type==11){
 		modelData = await model_loader.loadAsync('./models/player.glb');
 		const obj_Player = modelData.scene.children[0];
-		obj_Player.position.set(0.25, 0.97, -0.75);
-		obj_Player.scale.set(0.145, 0.145, 0.145);
-		obj_Player.rotation.y = 45 * Math.PI / 180;
+		//obj_Player.position.set(0.25, 0.97, -0.75);
+		obj_Player.position.set(0.15, 1.115, -0.95);
+		obj_Player.scale.set(0.04, 0.04, 0.04);
+		obj_Player.rotation.y = 135 * Math.PI / 180;
+		//obj_Player.scale.set(0.145, 0.145, 0.145);
+		//obj_Player.rotation.y = 45 * Math.PI / 180;
 		scene.add(obj_Player);
 		
 		modelData = await model_loader.loadAsync('./models/shop.glb');
@@ -354,7 +359,8 @@ function MoveRight(){
 		if (stam<=0) hp--; else stam--;
 		//if (hp<=0) GameOver();
 	} else textNode.nodeValue = "Wall is blocking your way.";
-	direction=-90;
+	//direction=-90;
+	direction=0;
 	Update();
 }
 document.getElementById('left').addEventListener('click', MoveLeft);	
@@ -406,7 +412,8 @@ function MoveLeft(){
 		if (stam<=0) hp--; else stam--;
 		//if (hp<=0) GameOver();
 	} else textNode.nodeValue = "Wall is blocking your way.";
-	direction=90;
+	//direction=90;
+	direction=180;
 	Update();
 }
 document.getElementById('up').addEventListener('click', MoveUp);	
@@ -458,7 +465,8 @@ function MoveUp(){
 		if (stam<=0) hp--; else stam--;
 		//if (hp<=0) GameOver();
 	} else textNode.nodeValue = "Wall is blocking your way.";
-	direction=0;
+	//direction=0;
+	direction=90;
 	Update();
 }
 document.getElementById('down').addEventListener('click', MoveDown);	
@@ -510,7 +518,8 @@ function MoveDown(){
 		if (stam<=0) hp--; else stam--;
 		//if (hp<=0) GameOver();
 	} else textNode.nodeValue = "Wall is blocking your way.";
-	direction=180;
+	//direction=180;
+	direction=-90;
 	Update();
 }
 // Keyboard movement
