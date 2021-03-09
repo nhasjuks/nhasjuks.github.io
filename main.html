@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<script src="js/build/three.min.js"></script>
+	<script type="module" src="js/main.js"></script>
+	
+	<div class="container">
+		<canvas id="c" width="1024" height="640"></canvas>
+		<div id="UI_stats">
+			<div>G: <span id="txt_gold"></span></div>
+			<div>S: <span id="txt_stam"></span></div>
+			<div>H: <span id="txt_hp"></span></div>
+			<div>F: <span id="txt_food"></span>&nbsp;&nbsp;<button type="button" id="eat_btn" style="visibility: hidden">Eat</button></div>
+			<br><br>
+			<div><span id="txt_info"></span></div>
+			<div><button type="button" id="use_btn" style="visibility: hidden"><span id="use_btn_txt">Buy food</span></button></div>
+		</div>
+		<div id="UI_movement">
+			<table style="color: white">
+				<tr>
+					<th><span id="txt_console"></span></th>
+					<th><button type="button" id="up">Up</button></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th><button type="button" id="left">Left</button></th>
+					<th>Move</th>
+					<th><button type="button" id="right">Right</button></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th><button type="button" id="down">Down</button></th>
+					<th></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
