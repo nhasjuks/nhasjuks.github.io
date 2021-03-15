@@ -10,7 +10,20 @@
 	
 	<div class="container">
 		<canvas id="c" width="1024" height="640"></canvas>
-		<div id="UI_stats">
+		<div id="main_menu_text">
+			<span id="game_name">Game</span>
+		</div>
+		<div id="main_menu" style="visibility: hidden">
+			<button type="button" id="new_game2" class="menu_button1">New Game</button>
+		</div>
+		<div id="gameover_screen" style="visibility: hidden">
+			<span id="game_name">Gameover</span><br>
+			<div>Your score is <span id="gameover_score"></span>.</div>
+			<div>You collected <span id="gameover_gold"></span> gold.</div>
+			<div>You climbed <span id="gameover_levels"></span> levels high.</div>
+			<button type="button" id="new_game" class="menu_button1">New Game</button>
+		</div>
+		<div id="UI_stats" style="visibility: hidden">
 			<div>G: <span id="txt_gold"></span></div>
 			<div>S: <span id="txt_stam"></span></div>
 			<div>H: <span id="txt_hp"></span></div>
@@ -19,7 +32,7 @@
 			<div><span id="txt_info"></span></div>
 			<div><button type="button" id="use_btn" style="visibility: hidden"><span id="use_btn_txt">Buy food</span></button></div>
 		</div>
-		<div id="UI_movement">
+		<div id="UI_movement" style="visibility: hidden">
 			<table style="color: white">
 				<tr>
 					<th><span id="txt_console"></span></th>
