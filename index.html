@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voronoi diagramm</title>
+<script type="text/javascript" src="js/voronoi_js.js"></script>
+<style type="text/css">
+body {font-family:tahoma,verdana,arial;font-size:13px;margin:0;padding:0}
+body > div {margin-left:4px;margin-right:4px;}
+body > div > div {margin:0;border:1px solid #ccc;border-top:0;padding:4px;}
+h1 {margin:0 0 0.5em 0;padding: 4px 5em 4px 4px;font:bold large sans-serif;background-color:#c9d7f1;}
+h4 {font-size:14px;margin:0.5em 0 0 0;border:0;border-bottom:solid 1px #c9d7f1;padding:2px;background-color:#e5ecf9;}
+h4 > span {cursor:pointer}
+textarea {font-size:11px;color:gray}
+table {padding:0;border:1px solid #eee}
+table tr:first-child {background-color:#e4f4e4;font-weight:bold;}
+table tr:first-child ~ tr:nth-child(odd) {background-color:#f4f4f4}
+table td {margin:0;padding:2px;border:0;vertical-align:top;background-color:transparent;}
+#canvasParent {margin-top:0;margin-bottom:1em;padding:0;border:0}
+</style>
+</head>
+<body onload="Voronoi.init();">
+
+<h4 class="divhdr">Sites generator</h4>
+<div class="divinfo" id="voronoiGenerator">
+<input type="button" value="Generate" onclick="BtnGenerate()"/> or <input type="button" value="Add" onclick="BtnAdd()"/><input id="voronoiNumberSites" type="number" value="100" min="1" max="100000"/> sites randomly (Min. 1, Max. 100000) (Warning: performance might suffer the more sites you add.)<br/>
+<div style="display:inline-block;vertical-align:top;"><input id="voronoiParseSites" type="button" value="Parse as sites" onclick="Voronoi.parseSites(document.getElementById('voronoiUserInput').value);"/><br/>
+<input id="voronoiParseLattices" type="button" value="Parse as lattices" onclick="Voronoi.parseLattices(document.getElementById('voronoiUserInput').value);"/></div>
+<div style="display:inline-block;vertical-align:top;"><textarea id="voronoiUserInput" rows="4" cols="80">Any non-digit character is interpreted as a separator. Sites: The input is scanned for consecutive pairs of values which are interpreted as (x,y). Lattices: The input is scanned for consecutive quadruplets of values which are interpreted as (offset x, offset y, delta x, delta y). Example, try: 0,0,60,100,30,50,60,100</textarea></div>
+<input id="voronoiClearSites" type="button" value="Clear all sites" onclick="Voronoi.clearSites();"/>
+</div>
+<h4 class="divhdr">Canvas</h4>
+<div id="voronoiCanvasControls">
+<div style="width:80%;margin:0;border:0;display:inline-block;vertical-align:top;">
+	<input id="voronoiCanvasSize" type="button" value="Set" onclick="Voronoi.setCanvasSize(parseInt(document.getElementById('voronoiWidth').value,10),parseInt(document.getElementById('voronoiHeight').value,10));Voronoi.setCanvasMargin(parseInt(document.getElementById('voronoiCanvasMargin').value,10));document.getElementById('divroot').style.width=String(Math.max(Voronoi.canvas.width,800))+'px'"/>
+	Canvas width: <input id="voronoiWidth" type="number" value="800" min="1"/> px, height: <input id="voronoiHeight" type="number" value="600" min="1"/> px,
+	margin: <input id="voronoiCanvasMargin" type="text" value="0" size="2" maxlength="2" /> px<br>
+	<input id="voronoiColourize" type="button" value="Colourize" onclick="BtnDraw(0)"/>
+	<input id="voronoiDecolourize" type="button" value="Decolourize" onclick="BtnDraw(1)"/>
+	<input id="voronoiShowPoints" type="button" value="Show points" onclick="BtnDraw(3)"/>
+	<input id="voronoiHidePoints" type="button" value="Hide points" onclick="BtnDraw(2)"/>
+</div>
+<div id="canvasParent">
+<noscript>You need to enable Javascript in your browser for this page to display properly.</noscript>
+<canvas id="voronoiCanvas" style="cursor:crosshair" width="800" height="600"></canvas>
+<div id="voronoiNoCanvasAlert" style="display:none;padding:1em;background-color:#fcc;color:black;">
+<p>Your browser doesn't support the HTML5 &lt;canvas&gt; element technology.</p>
+<p>See <a target="_blank" href="http://en.wikipedia.org/wiki/Canvas_(HTML_element)">Wikipedia</a> for information on which browsers support the <u>HTML5 &lt;canvas&gt;</u> technology.</p>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
